@@ -3,7 +3,8 @@ Given(/^the input "(.*?)"$/) do |input|
 end
 
 When(/^the calculator is run$/) do
-	pending # express the regexp above with the code you wish you had
+	@output = `ruby calc.rb #{@input}`
+	raise('command failed!') unless $?.success?
 end
 
 Then(/^the output should be "(.*?)"$/) do |arg1|
